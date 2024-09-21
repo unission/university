@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  service:
+    build:
+      dockerfile: Dockerfile
+    container_name: university_service
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file: "postgres.env"
+    depends_on:
+      - db
+    network_mode: host
+
+  db:
+    image: postgres:latest
+    container_name: university_db
+    restart: always
+    ports:
+      - "5430:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file: "postgres.env"
+    network_mode: bridge
+
+volumes:
+  pgdata:
