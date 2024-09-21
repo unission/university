@@ -14,8 +14,8 @@ University service for unission
 4. To start the service run the following command:
     - ```shell
       docker compose up -d
-     ```
+      ```
 5. To get into psql execute the following command:
     - ```shell
       docker exec -it university_db psql -U "your username here" -d "your database name here"
-     ```
+      ```
